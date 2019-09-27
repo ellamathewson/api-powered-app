@@ -1,0 +1,20 @@
+{
+  "name": "api-powered-app",
+  "version": "1.0.0",
+  "description": "project 1 for rich media",
+  "main": "./Desktop/richmedia/http-api-assignment",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "echo \"No Tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellamathewson/api-powered-app.git"
+  },
+  "author": "Ella Mathewson",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ellamathewson/api-powered-app/issues"
+  },
+  "homepage": "https://github.com/ellamathewson/api-powered-app#readme"
+}
