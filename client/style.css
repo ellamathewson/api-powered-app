@@ -1,21 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Josefin+Slab&display=swap');
+
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #C9FFC9;
+  font-family: 'Josefin Slab', serif;
 }
 
-#top {
-  text-align: center;
-  margin: 0 auto;
+a {
+  text-decoration: none;
+  margin: 0 1em 0 1em;
 }
 
-#top h1 {
-  font-size: 2em;
+a:hover {
+  text-decoration: underline;
 }
 
-#content {
-  margin-top: 100px;
-  font-size: 2em;
-  text-align: center;
+#logo {
+  font-family: 'Amatic SC', cursive;
 }
+
+#logo:hover {
+  cursor: default;
+}
+
+#navLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 2em;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin: 2em;
+}
+
