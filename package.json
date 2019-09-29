@@ -1,10 +1,15 @@
 {
   "name": "api-powered-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.10.0",
+    "npm": "6.9.0"
+  },
   "description": "project 1 for rich media",
   "main": "./Desktop/richmedia/http-api-assignment",
   "scripts": {
     "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
     "test": "echo \"No Tests\""
   },
   "repository": {
@@ -16,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/ellamathewson/api-powered-app/issues"
   },
-  "homepage": "https://github.com/ellamathewson/api-powered-app#readme"
+  "homepage": "https://github.com/ellamathewson/api-powered-app#readme",
+  "devDependencies": {
+    "eslint": "^6.5.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2"
+  }
 }
