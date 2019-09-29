@@ -42,3 +42,16 @@ nav {
   margin: 2em;
 }
 
+
+content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+article {
+  width: 80vw;
+  margin: 5vh 10vw;
+  border: 1px solid black;
+}
