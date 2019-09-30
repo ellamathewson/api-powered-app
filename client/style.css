@@ -55,3 +55,12 @@ article {
   margin: 5vh 10vw;
   border: 1px solid black;
 }
+
+#addDrinkForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  margin: 0 10vw;
+}
