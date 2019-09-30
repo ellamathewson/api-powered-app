@@ -21,7 +21,7 @@ const respondJSONMeta = (request, response, status) => {
   response.end();
 };
 
-const addNewDrink = (request, response, body) => {
+const addDrink = (request, response, body) => {
   const responseJSON = {
     message: 'Name is required',
   };
@@ -64,7 +64,7 @@ const notFoundMeta = (request, response) => {
 
 // public exports
 module.exports = {
-  addNewDrink,
+  addDrink,
   notFound,
   notFoundMeta,
 };

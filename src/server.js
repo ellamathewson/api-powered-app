@@ -41,7 +41,7 @@ const handlePost = (request, response, parsedUrl) => {
       const bodyParams = query.parse(bodyString);
 
       console.dir(bodyParams);
-      jsonHandler.addNewDrink(request, res, bodyParams);
+      jsonHandler.addDrink(request, res, bodyParams);
     });
   }
 };

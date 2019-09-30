@@ -106,10 +106,10 @@
       const drinkForm = document.querySelector('#addDrinkForm');
       
       //create handler
-      const addNewDrink = (e) => sendPost(e, drinkForm);
+      const addDrink = (e) => sendPost(e, drinkForm);
       
       //attach submit event (for clicking submit or hitting enter)
-      drinkForm.addEventListener('submit', addNewDrink);
+      drinkForm.addEventListener('submit', addDrink);
     };
   
     window.onload = init;
