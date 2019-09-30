@@ -41,15 +41,15 @@ const addNewDrink = (request, response, body) => {
     return respondJSON(request, response, 400, respondJSON);
   }
 
-  let responseCode = 201;
+  const responseCode = 201;
 
-  if (faveDrinks[body.drink]) {
-    responseCode = 204;
-  } else {
-    faveDrinks[body.drink] = {};
-  }
+  //   if (faveDrinks[body.drink]) {
+  //     responseCode = 204;
+  //   } else {
+  //     faveDrinks[body.drink] = {};
+  //   }
 
-  faveDrinks[body.drink].drink = body.drink;
+  //   faveDrinks[body.drink].drink = body.drink;
 
   if (responseCode === 201) {
     responseJSON.message = 'Added to favorite drinks!';
