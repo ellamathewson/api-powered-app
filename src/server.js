@@ -13,7 +13,6 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/latteImage.jpg': htmlHandler.getImage,
-    '/addDrink': jsonHandler.addNewDrink,
     '/favoriteDrinks': htmlHandler.getBrowseFaveDrinks,
     '/getUsers': jsonHandler.getUsers,
     '/notReal': jsonHandler.notReal,
@@ -28,7 +27,7 @@ const urlStruct = {
 
 // handle POST requests
 const handlePost = (request, response, parsedUrl) => {
-  if (parsedUrl.pathname === '/addNewDrink') {
+  if (parsedUrl.pathname === '/addDrink') {
     const res = response;
 
     const body = [];
@@ -46,7 +45,7 @@ const handlePost = (request, response, parsedUrl) => {
       const bodyString = Buffer.concat(body).toString();
       const bodyParams = query.parse(bodyString);
 
-      jsonHandler.addUser(request, res, bodyParams);
+      jsonHandler.addNewDrink(request, res, bodyParams);
     });
   }
 };

@@ -35,7 +35,7 @@
     };
   
     const handleResponse = (xhr) => {
-      const content = document.querySelector('#content');
+      const content = document.querySelector('#contentResponse');
       //check the status code
       switch(xhr.status) {
         case 200: //success
@@ -128,7 +128,6 @@
 </nav>
 
 <content>
-  
     <form id="addDrinkForm" action="/addDrink" method="post">
       <div class="formItem">
       <label for="drink">Drink: </label>
@@ -148,6 +147,7 @@
   </div>
       <input type="submit" value="Save to Favorites"/>
   </form>
+  <section id="contentResponse"></section>
 </content>
 </body>
 </html>

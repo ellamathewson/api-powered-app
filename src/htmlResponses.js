@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 const index = fs.readFileSync(`${__dirname}/../client/client.html`);
-const addDrink = fs.readFileSync(`${__dirname}/../client/addDrink.html`);
+// const addDrink = fs.readFileSync(`${__dirname}/../client/addDrink.html`);
 const browseFaveDrinks = fs.readFileSync(`${__dirname}/../client/browseFaveDrinks.html`);
 
 
@@ -15,11 +15,11 @@ const getIndex = (request, response) => {
   response.end();
 };
 
-const getAddDrink = (request, response) => {
-  response.writeHead(200, { 'Content-Type': 'text/html' });
-  response.write(addDrink);
-  response.end();
-};
+// const getAddDrink = (request, response) => {
+//   response.writeHead(200, { 'Content-Type': 'text/html' });
+//   response.write(addDrink);
+//   response.end();
+// };
 
 const getBrowseFaveDrinks = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -58,6 +58,6 @@ module.exports = {
   getIndex,
   getCSS,
   getImage,
-  getAddDrink,
+  // getAddDrink,
   getBrowseFaveDrinks,
 };
