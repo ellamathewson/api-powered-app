@@ -13,14 +13,9 @@ const urlStruct = {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
     '/latteImage.jpg': htmlHandler.getImage,
-    '/favoriteDrinks': htmlHandler.getBrowseFaveDrinks,
-    '/getUsers': jsonHandler.getUsers,
-    '/notReal': jsonHandler.notReal,
     notFound: jsonHandler.notFound,
   },
   HEAD: {
-    '/getUsers': jsonHandler.getUsersMeta,
-    '/notReal': jsonHandler.notRealMeta,
     notFound: jsonHandler.notFoundMeta,
   },
 };
