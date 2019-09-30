@@ -26,24 +26,25 @@ const addDrink = (request, response, body) => {
     message: 'Name is required',
   };
 
-  if (!body.drink) {
-    responseJSON.id = 'missingParams';
-    return respondJSON(request, response, 400, respondJSON);
-  }
+  //   if (!body.drink) {
+  //     responseJSON.id = 'missingParams';
+  //     return respondJSON(request, response, 400, responseJSON);
+  //   }
 
   const responseCode = 201;
 
   //   if (faveDrinks[body.drink]) {
+
   //     responseCode = 204;
   //   } else {
   //     faveDrinks[body.drink] = {};
   //   }
 
-  faveDrinks[body.drink].drink = body.drink;
+  // faveDrinks[body.drink].drink = body.drink;
 
   if (responseCode === 201) {
     responseJSON.message = 'Added to favorite drinks!';
-    return responseJSON(request, response, responseCode, responseJSON);
+    return respondJSON(request, response, responseCode, responseJSON);
   } return respondJSONMeta(request, response, responseCode);
 };
 
