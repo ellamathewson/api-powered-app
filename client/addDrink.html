@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 
     <title>Special-Tea</title>
+
+
 </head>
 
 <body>
@@ -24,14 +26,22 @@
 
     <content>
         <form id="addDrinkForm" action="/addDrink" method="post">
+            <div class="formItem">
             <label for="drink">Drink: </label>
             <input id="drinkField" type="text" name="drink" />
+        </div>
+        <div class="formItem">
             <label for="cafeName">Cafe Name: </label>
             <input id="cafeField" type="text" name="cafeName" />
+        </div>
+        <div class="formItem">
             <label for="location">Location: </label>
             <input id="locationField" type="text" name="location" />
+        </div>
+        <div class="formItem">
             <label for="cost">Cost: </label>
             <input id="costField" type="number" name="cost" min="0.00" max="10000" step="0.01"/>
+        </div>
             <input type="submit" value="Save to Favorites"/>
         </form>
     </content>
