@@ -21,26 +21,36 @@ const respondJSONMeta = (request, response, status) => {
   response.end();
 };
 
+const getDrinks = (request, response) => {
+  const responseJSON = {
+    faveDrinks,
+  };
+
+  respondJSON(request, response, 200, responseJSON);
+};
+
+const getDrinksMeta = (request, response) => respondJSONMeta(request, response, 200);
+
 const addDrink = (request, response, body) => {
+  console.dir(body);
   const responseJSON = {
     message: 'Name is required',
   };
 
-  //   if (!body.drink) {
-  //     responseJSON.id = 'missingParams';
-  //     return respondJSON(request, response, 400, responseJSON);
-  //   }
+  if (!body.name) {
+    responseJSON.id = 'missingParams';
+    return respondJSON(request, response, 400, responseJSON);
+  }
 
-  const responseCode = 201;
+  let responseCode = 201;
 
-  //   if (faveDrinks[body.drink]) {
+  if (faveDrinks[body.name]) {
+    responseCode = 204;
+  } else {
+    faveDrinks[body.name] = {};
+  }
 
-  //     responseCode = 204;
-  //   } else {
-  //     faveDrinks[body.drink] = {};
-  //   }
-
-  // faveDrinks[body.drink].drink = body.drink;
+  faveDrinks[body.name].name = body.name;
 
   if (responseCode === 201) {
     responseJSON.message = 'Added to favorite drinks!';
@@ -66,6 +76,8 @@ const notFoundMeta = (request, response) => {
 // public exports
 module.exports = {
   addDrink,
+  getDrinks,
+  getDrinksMeta,
   notFound,
   notFoundMeta,
 };

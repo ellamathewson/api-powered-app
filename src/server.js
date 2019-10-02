@@ -12,6 +12,7 @@ const urlStruct = {
   GET: {
     '/': htmlHandler.getIndex,
     '/style.css': htmlHandler.getCSS,
+    '/getDrinks': jsonHandler.getDrinks,
     '/latteImage.jpg': htmlHandler.getImage,
     notFound: jsonHandler.notFound,
   },
@@ -23,6 +24,7 @@ const urlStruct = {
 // handle POST requests
 const handlePost = (request, response, parsedUrl) => {
   if (parsedUrl.pathname === '/addDrink') {
+    console.dir('in addDrink');
     const res = response;
 
     const body = [];
@@ -48,7 +50,7 @@ const handlePost = (request, response, parsedUrl) => {
 
 const handleGet = (request, response, parsedUrl) => {
   if (urlStruct[request.method][parsedUrl.pathname]) {
-    console.dir('in handle get if');
+    // console.dir('in handle get if');
     urlStruct[request.method][parsedUrl.pathname](request, response);
   } else {
     urlStruct[request.method].notFound(request, response);
@@ -57,7 +59,7 @@ const handleGet = (request, response, parsedUrl) => {
 
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
-  console.dir(parsedUrl);
+  // console.dir(parsedUrl);
   if (request.method === 'POST') {
     handlePost(request, response, parsedUrl);
   } else {
