@@ -24,7 +24,6 @@ const urlStruct = {
 // handle POST requests
 const handlePost = (request, response, parsedUrl) => {
   if (parsedUrl.pathname === '/addDrink') {
-    console.dir('in addDrink');
     const res = response;
 
     const body = [];
@@ -42,7 +41,7 @@ const handlePost = (request, response, parsedUrl) => {
       const bodyString = Buffer.concat(body).toString();
       const bodyParams = query.parse(bodyString);
 
-      console.dir(bodyParams);
+      // console.dir(bodyParams);
       jsonHandler.addDrink(request, res, bodyParams);
     });
   }

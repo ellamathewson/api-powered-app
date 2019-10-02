@@ -18,7 +18,6 @@
       
       //if message in response, add to screen
       if(obj.message) {
-        console.dir('object');
         const p = document.createElement('p');
         p.textContent = `Message: ${xhr.response}`;
         content.appendChild(p);
@@ -83,33 +82,37 @@
       return false;
     };
   
-  //   const requestUpdate = (e, userForm) => {
-  //     const url = userForm.querySelector('#urlField').value;
-  //     const method = userForm.querySelector('#methodSelect').value;
+    const requestUpdate = (e, method) => {
+      // const url = userForm.querySelector('#urlField').value;
+      // const method = userForm.querySelector('#methodSelect').value;
       
-  //     const xhr = new XMLHttpRequest();
-  //     xhr.open(method, url);
+      const xhr = new XMLHttpRequest();
+      xhr.open('get', method);
       
-  //     xhr.setRequestHeader('Accept', 'application/json');
-  //     if(method == 'get') {
-  //       xhr.onload = () => handleResponse(xhr, true);
-  //     } else {
-  //       xhr.onload = () => handleResponse(xhr, false);
-  //     }
-  //     xhr.send();
+      xhr.setRequestHeader('Accept', 'application/json');
+      //if(method == 'get') {
+        xhr.onload = () => handleResponse(xhr, true);
+      // } else {
+      //   xhr.onload = () => handleResponse(xhr, false);
+      // }
+      xhr.send();
       
-  //     e.preventDefault();
-  //     return false;
-  //   };
+      e.preventDefault();
+      return false;
+    };
   
     const init = () => {   
       const drinkForm = document.querySelector('#addDrinkForm');
+      const getDrinkButton = document.querySelector('#seeDrinks');
       
       //create handler
       const addDrink = (e) => sendPost(e, drinkForm);
-      
+      const getDrink = (e) => requestUpdate(e, '/getDrinks');
+
       //attach submit event (for clicking submit or hitting enter)
       drinkForm.addEventListener('submit', addDrink);
+      getDrinkButton.addEventListener('click', getDrink)
+
     };
   
     window.onload = init;
@@ -121,9 +124,7 @@
         <h1>Special-Tea</h1>
     </div>
     <div id="navLinks">
-      <a href="">Home</a>
-      <a href="">My Drinks</a>
-      <a href="">All Drinks</a>
+      <button id="seeDrinks">My Drinks</button>
     </div>
 </nav>
 

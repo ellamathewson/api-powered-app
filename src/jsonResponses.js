@@ -34,23 +34,24 @@ const getDrinksMeta = (request, response) => respondJSONMeta(request, response, 
 const addDrink = (request, response, body) => {
   console.dir(body);
   const responseJSON = {
-    message: 'Name is required',
+    message: 'All fields are required',
   };
 
-  if (!body.name) {
+  if (!body.name || !body.cafe || !body.location || !body.cost) {
     responseJSON.id = 'missingParams';
     return respondJSON(request, response, 400, responseJSON);
   }
 
   let responseCode = 201;
 
-  if (faveDrinks[body.name]) {
+  if (faveDrinks[body.cost] && faveDrinks[body.cafe] && faveDrinks[body.location]) {
     responseCode = 204;
   } else {
     faveDrinks[body.name] = {};
   }
 
-  faveDrinks[body.name].name = body.name;
+  faveDrinks[body.name].cost = body.cost;
+  // faveDrinks[body.name].cost = body.cafe;
 
   if (responseCode === 201) {
     responseJSON.message = 'Added to favorite drinks!';
