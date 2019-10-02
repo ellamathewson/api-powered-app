@@ -12,23 +12,26 @@
   <script type="text/babel">
     const parseJSON = (xhr, content) => {
       if(xhr.response) {
+        console.dir('in xhr response');
         const obj = JSON.parse(xhr.response);
         console.dir(obj);
       
-      
       //if message in response, add to screen
       if(obj.message) {
+        console.dir('have object')
         const p = document.createElement('p');
         p.textContent = `Message: ${xhr.response}`;
         content.appendChild(p);
       }
       
       //if users in response, add to screen
-      if(obj.users) {
-        const userList = document.createElement('p');
-        const users = JSON.stringify(obj.users);
-        userList.textContent = users;
-        content.appendChild(userList);
+      if(obj.faveDrinks) {
+        console.dir('in object');
+        const drinkList = document.createElement('p');
+        const drinks = JSON.stringify(obj.faveDrinks);
+        drinkList.textContent = drinks;
+        console.dir(drinkList);
+        content.appendChild(drinkList);
       }
     }
     };
