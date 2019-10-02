@@ -107,10 +107,12 @@
     const init = () => {   
       const drinkForm = document.querySelector('#addDrinkForm');
       const getDrinkButton = document.querySelector('#seeDrinks');
+      const allDrinkButton = document.querySelector('#allDrinks');
       
       //create handler
       const addDrink = (e) => sendPost(e, drinkForm);
       const getDrink = (e) => requestUpdate(e, '/getDrinks');
+      // const allDrink = (e) => 
 
       //attach submit event (for clicking submit or hitting enter)
       drinkForm.addEventListener('submit', addDrink);
@@ -128,6 +130,7 @@
     </div>
     <div id="navLinks">
       <button id="seeDrinks">My Drinks</button>
+      <button id="allDrinks">All Drinks</button>
     </div>
 </nav>
 

@@ -44,8 +44,12 @@ const addDrink = (request, response, body) => {
 
   let responseCode = 201;
 
-  if (faveDrinks[body.cost]) {
-    responseCode = 204;
+  if (faveDrinks[body.name]) {
+    if (faveDrinks[body.name].name === body.name
+        && faveDrinks[body.name].cafe === body.cafe
+        && faveDrinks[body.name].location === body.location) {
+      responseCode = 204;
+    }
   } else {
     faveDrinks[body.name] = {};
   }
