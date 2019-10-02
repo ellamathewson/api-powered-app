@@ -26,14 +26,6 @@ a:hover {
   cursor: default;
 }
 
-#navLinks {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  margin: 2em;
-}
-
 nav {
   display: flex;
   flex-direction: row;
@@ -42,6 +34,17 @@ nav {
   margin: 2em;
 }
 
+button {
+  background-color: white;
+  border: none;
+  margin: 2em;
+  padding: 10px;
+  font-family: 'Josefin Slab', serif;
+}
+
+button:hover {
+  cursor: pointer;
+}
 
 content {
   display: flex;
