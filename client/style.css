@@ -6,7 +6,14 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #B89D7F;
-  font-family: 'Josefin Slab', serif;
+  font-family: 'Amatic SC', serif;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -31,20 +38,22 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  margin: 2em;
+  margin: 0 2em 2em 2em;
 }
 
 button {
   background-color: #B89D7F;
   border: none;
-  margin: 1.5em;
-  padding: 10px;
-  font-family: 'Josefin Slab', serif;
+  font-size: 25px;
+  color: white;
+  margin: 2vh 2vw;
+  padding: 0 5vw;
+  font-family: 'Amatic SC', serif;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: #48321d;
   border-radius: 10px;
 }
 
@@ -73,4 +82,35 @@ article {
   background-color: rgba(255, 255, 255, 0.75);
   margin: 0 25vw;
   padding: 5vh 5vw;
+}
+
+.formItem {
+  font-size: 25px;
+}
+
+label {
+  display:inline-block;
+  width: 150px;
+  text-align: right;
+  padding: 14px 10px 0 0;
+  margin:0 0 7px 0;
+}
+
+input, textarea {
+  display:inline-block;
+  width: 200px;
+  margin:0 0 7px 0;
+}​
+
+#drinkField, #dateField, #cafeField, #costField, #ratingField {
+  height: 35px;
+  border: none;
+  border: 1px solid #48321d;
+  background-color: white;
+}
+
+#descField {
+  height: 50px;
+  border: 1px solid #48321d;
+  background-color: white;
 }
