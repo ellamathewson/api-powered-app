@@ -121,15 +121,15 @@
     };
 
     const showForm = () => {
-      // const addDrinkForm = document.querySelector("#addDrinkForm");
-      // const drinkContent = document.querySelector("#contentResponse");
+      const addDrinkForm = document.querySelector("#addDrinkForm");
+      const drinkContent = document.querySelector("#contentResponse");
       // const outputContent = document.querySelector("#output");
 
-      // //if(addDrinkForm.style.display === "none") {
-      //   addDrinkForm.style.display = "block";
-      //   drinkContent.style.display = "none";
+      if(addDrinkForm.style.display === "none") {
+        addDrinkForm.style.display = "block";
+        drinkContent.innerHTML = "";
       //   outputContent.style.display = "none";
-      //}
+      }
       // } else {
       //   drinkContent.style.display = "block";
       //   addDrinkForm.style.display = "none";
