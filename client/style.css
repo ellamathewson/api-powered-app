@@ -35,15 +35,17 @@ nav {
 }
 
 button {
-  background-color: white;
+  background-color: #C9FFC9;
   border: none;
-  margin: 2em;
+  margin: 1.5em;
   padding: 10px;
   font-family: 'Josefin Slab', serif;
 }
 
 button:hover {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
 }
 
 content {
