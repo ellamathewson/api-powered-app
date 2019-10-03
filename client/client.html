@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="/style.css">
 
-  <title>Special-Tea</title>
+  <title>Coffee Writings</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script type="text/babel">
@@ -26,27 +26,34 @@
       
       //if users in response, add to screen
       if(obj.faveDrinks) {
-        let drinks = [];
-        for(let d in obj.faveDrinks) {
-          drinks.push(d);
-        }
+        // let drinks = [];
+        // for(let d in obj.faveDrinks) {
+        //   drinks.push(d);
+        // }
 
-        for(let i = 0; i < drinks.length; i++) {
-          const drinkDiv = document.createElement('div');
-          const drinkHeader = document.createElement('h1');
-          const stringDrink = JSON.stringify(drinks[i]);
-          drinkHeader.textContent = stringDrink;
-          content.appendChild(drinkDiv);
-          content.appendChild(drinkHeader);
-        }
-        console.dir(drinks)
-        
+        // for(let i = 0; i < drinks.length; i++) {
+        //   const drinkDiv = document.createElement('div');
+        //   const drinkHeader = document.createElement('h1');
+        //   const stringDrink = JSON.stringify(drinks[i]);
+        //   drinkHeader.textContent = stringDrink;
+        //   content.appendChild(drinkDiv);
+        //   content.appendChild(drinkHeader);
+        // }
+
         // console.dir('in object');
-       /* const drinkList = document.createElement('p');
+        const drinkList = document.createElement('p');
         const drinks = JSON.stringify(obj.faveDrinks);
         drinkList.textContent = drinks;
         console.dir(drinkList);
-        content.appendChild(drinkList); */
+        content.appendChild(drinkList); 
+      }
+
+      if(obj.allDrinks) {
+        const drinkList = document.createElement('p');
+        const drinks = JSON.stringify(obj.allDrinks);
+        drinkList.textContent = drinks;
+        console.dir(drinkList);
+        content.appendChild(drinkList); 
       }
     }
     };
@@ -127,11 +134,12 @@
       //create handler
       const addDrink = (e) => sendPost(e, drinkForm);
       const getDrink = (e) => requestUpdate(e, '/getDrinks');
-      // const allDrink = (e) => 
+      const allDrink = (e) => requestUpdate(e, '/allDrinks');
 
       //attach submit event (for clicking submit or hitting enter)
       drinkForm.addEventListener('submit', addDrink);
-      getDrinkButton.addEventListener('click', getDrink)
+      getDrinkButton.addEventListener('click', getDrink);
+      allDrinkButton.addEventListener('click', allDrink);
 
     };
   
@@ -141,7 +149,7 @@
 <body>
   <nav>
     <div id="logo">
-        <h1>Special-Tea</h1>
+        <h1>Coffee Writings</h1>
     </div>
     <div id="navLinks">
       <button id="seeDrinks">My Drinks</button>
@@ -156,17 +164,25 @@
       <input id="drinkField" type="text" name="drink" />
   </div>
   <div class="formItem">
+    <label for="date">Date: </label>
+    <input id="dateField" type="date" name="date" />
+</div>
+  <div class="formItem">
       <label for="cafeName">Cafe Name: </label>
       <input id="cafeField" type="text" name="cafeName" />
   </div>
   <div class="formItem">
-      <label for="location">Location: </label>
-      <input id="locationField" type="text" name="location" />
+      <label for="description">Description: </label>
+      <input id="descField" type="text" name="description" />
   </div>
   <div class="formItem">
       <label for="cost">Cost: </label>
       <input id="costField" type="number" name="cost" min="0.00" max="10000" step="0.01"/>
   </div>
+  <div class="formItem">
+    <label for="rating">Rating (0 - 10): </label>
+    <input id="ratingField" type="number" name="rating" min="0" max="10" step="1"/>
+</div>
       <input type="submit" value="Save to Favorites"/>
   </form>
   <section id="contentResponse"></section>

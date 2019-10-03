@@ -2,7 +2,11 @@
 /* eslint-disable no-console */
 /* eslint-disable linebreak-style */
 
+// Descriptions of AllDrinks from https://github.com/CoffeeJson/json/blob/gh-pages/coffee.json, by Robert James Gabriel
+
 const faveDrinks = {};
+// const today = new Date();
+const allDrinks = require('./allDrinks.json');
 
 const respondJSON = (request, response, status, object) => {
   const headers = {
@@ -31,6 +35,13 @@ const getDrinks = (request, response) => {
 
 const getDrinksMeta = (request, response) => respondJSONMeta(request, response, 200);
 
+const getAllDrinks = (request, response) => {
+  const responseJSON = {
+    allDrinks,
+  };
+  respondJSON(request, response, 200, responseJSON);
+};
+
 const addDrink = (request, response, body) => {
   console.dir(body);
   const responseJSON = {
@@ -46,8 +57,8 @@ const addDrink = (request, response, body) => {
 
   if (faveDrinks[body.name]) {
     if (faveDrinks[body.name].name === body.name
-        && faveDrinks[body.name].cafe === body.cafe
-        && faveDrinks[body.name].location === body.location) {
+      && faveDrinks[body.name].cafe === body.cafe
+      && faveDrinks[body.name].location === body.location) {
       responseCode = 204;
     }
   } else {
@@ -88,6 +99,7 @@ module.exports = {
   addDrink,
   getDrinks,
   getDrinksMeta,
+  getAllDrinks,
   notFound,
   notFoundMeta,
 };
