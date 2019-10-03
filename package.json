@@ -2,7 +2,7 @@
   "name": "api-powered-app",
   "version": "1.0.0",
   "engines": {
-    "node": "12.10.0",
+    "node": "10.16.0",
     "npm": "6.9.0"
   },
   "description": "project 1 for rich media",
