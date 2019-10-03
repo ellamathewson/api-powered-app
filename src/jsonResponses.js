@@ -48,7 +48,7 @@ const addDrink = (request, response, body) => {
     message: 'All fields are required',
   };
 
-  if (!body.name || !body.cafe || !body.location || !body.cost) {
+  if (!body.name || !body.date || !body.cafe || !body.description || !body.cost || !body.rating) {
     responseJSON.id = 'missingParams';
     return respondJSON(request, response, 400, responseJSON);
   }
@@ -57,8 +57,8 @@ const addDrink = (request, response, body) => {
 
   if (faveDrinks[body.name]) {
     if (faveDrinks[body.name].name === body.name
-      && faveDrinks[body.name].cafe === body.cafe
-      && faveDrinks[body.name].location === body.location) {
+      && faveDrinks[body.name].date === body.date
+      && faveDrinks[body.name].cafe === body.cafe) {
       responseCode = 204;
     }
   } else {
@@ -68,8 +68,10 @@ const addDrink = (request, response, body) => {
   console.dir('update');
   faveDrinks[body.name].name = body.name;
   faveDrinks[body.name].cafe = body.cafe;
-  faveDrinks[body.name].location = body.location;
+  faveDrinks[body.name].date = body.date;
+  faveDrinks[body.name].description = body.description;
   faveDrinks[body.name].cost = body.cost;
+  faveDrinks[body.name].rating = body.rating;
 
   // faveDrinks[body.name].cost = body.cafe;
 

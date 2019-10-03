@@ -86,9 +86,11 @@
       const drinkMethod = drinkForm.getAttribute('method');
       
       const drinkField = drinkForm.querySelector('#drinkField');
+      const dateField = drinkForm.querySelector('#dateField');
       const cafeField = drinkForm.querySelector('#cafeField');
-      const locationField = drinkForm.querySelector('#locationField');
+      const descField = drinkForm.querySelector('#descField');
       const costField = drinkForm.querySelector('#costField');
+      const ratingField = drinkForm.querySelector('#ratingField');
       
       const xhr = new XMLHttpRequest();
       xhr.open(drinkMethod, drinkAction);
@@ -98,7 +100,7 @@
       
       xhr.onload = () => handleResponse(xhr);
       
-      const formData = `name=${drinkField.value}&cafe=${cafeField.value}&location=${locationField.value}&cost=${costField.value}`;
+      const formData = `name=${drinkField.value}&date=${dateField.value}&cafe=${cafeField.value}&description=${descField.value}&cost=${costField.value}&rating=${ratingField.value}`;
       
       xhr.send(formData);
       console.dir(formData);
