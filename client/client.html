@@ -54,6 +54,12 @@
         drinkList.textContent = drinks;
         console.dir(drinkList);
         content.appendChild(drinkList); 
+        // for(let i = 0; i < allDrinks.coffee.length; i++) {
+        //   const drink = JSON.stringify(allDrinks.coffee[i]);
+        //   const drinkTitle = document.createElement('p');
+        //   drinkTitle.textContent = drink.name;
+        //   content.appendChild(drinkTitle);
+        // }
       }
     }
     };
@@ -72,10 +78,15 @@
           content.innerHTML = '<b>Updated (No Content)</b>';
           break;
         case 404: //updated (no response back from server)
-          content.innerHTML = '<b>Resource Not Found</b>';
+          //content.innerHTML = '<b>Resource Not Found</b>';
+          alert("Resource not found");
+          break;
+        case 400: 
+          alert("All fields are required");
           break;
         default: //any other status code
-          content.innerHTML = `Error code not implemented by client.`;
+          alert("Error: Code not implemented by client");  
+        //content.innerHTML = `Error code not implemented by client.`;
           break;
       }
       parseJSON(xhr, content);
@@ -108,8 +119,29 @@
       e.preventDefault();
       return false;
     };
+
+    const showForm = () => {
+      // const addDrinkForm = document.querySelector("#addDrinkForm");
+      // const drinkContent = document.querySelector("#contentResponse");
+      // const outputContent = document.querySelector("#output");
+
+      // //if(addDrinkForm.style.display === "none") {
+      //   addDrinkForm.style.display = "block";
+      //   drinkContent.style.display = "none";
+      //   outputContent.style.display = "none";
+      //}
+      // } else {
+      //   drinkContent.style.display = "block";
+      //   addDrinkForm.style.display = "none";
+      // }
+    }
   
     const requestUpdate = (e, method) => {
+      const addDrinkForm = document.querySelector("#addDrinkForm");
+      const drinkContent = document.querySelector("#output");
+
+        addDrinkForm.style.display = "none";
+        drinkContent.style.display = "block";
       // const url = userForm.querySelector('#urlField').value;
       // const method = userForm.querySelector('#methodSelect').value;
       
@@ -132,6 +164,9 @@
       const drinkForm = document.querySelector('#addDrinkForm');
       const getDrinkButton = document.querySelector('#seeDrinks');
       const allDrinkButton = document.querySelector('#allDrinks');
+
+      const showFormButton = document.querySelector('#newDrink');
+      showFormButton.addEventListener('click', showForm);
       
       //create handler
       const addDrink = (e) => sendPost(e, drinkForm);
@@ -142,7 +177,6 @@
       drinkForm.addEventListener('submit', addDrink);
       getDrinkButton.addEventListener('click', getDrink);
       allDrinkButton.addEventListener('click', allDrink);
-
     };
   
     window.onload = init;
@@ -154,8 +188,10 @@
         <h1>Coffee Writings</h1>
     </div>
     <div id="navLinks">
+      <button id="newDrink">New Drink</button>
       <button id="seeDrinks">My Drinks</button>
       <button id="allDrinks">All Drinks</button>
+
     </div>
 </nav>
 
@@ -189,5 +225,6 @@
   </form>
 </content>
 <section id="contentResponse"></section>
+<section id="output"></section>
 </body>
 </html>
