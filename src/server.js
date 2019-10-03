@@ -18,6 +18,7 @@ const urlStruct = {
     notFound: jsonHandler.notFound,
   },
   HEAD: {
+    '/getDrinks': jsonHandler.getDrinksMeta,
     notFound: jsonHandler.notFoundMeta,
   },
 };

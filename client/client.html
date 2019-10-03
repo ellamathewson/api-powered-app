@@ -123,17 +123,11 @@
     const showForm = () => {
       const addDrinkForm = document.querySelector("#addDrinkForm");
       const drinkContent = document.querySelector("#contentResponse");
-      // const outputContent = document.querySelector("#output");
 
       if(addDrinkForm.style.display === "none") {
         addDrinkForm.style.display = "block";
         drinkContent.innerHTML = "";
-      //   outputContent.style.display = "none";
       }
-      // } else {
-      //   drinkContent.style.display = "block";
-      //   addDrinkForm.style.display = "none";
-      // }
     }
   
     const requestUpdate = (e, method) => {
@@ -149,11 +143,11 @@
       xhr.open('get', method);
       
       xhr.setRequestHeader('Accept', 'application/json');
-      //if(method == 'get') {
+      if(method == 'get') {
         xhr.onload = () => handleResponse(xhr, true);
-      // } else {
-      //   xhr.onload = () => handleResponse(xhr, false);
-      // }
+      } else {
+        xhr.onload = () => handleResponse(xhr, false);
+      }
       xhr.send();
       
       e.preventDefault();
@@ -191,7 +185,6 @@
       <button id="newDrink">New Drink</button>
       <button id="seeDrinks">My Drinks</button>
       <button id="allDrinks">All Drinks</button>
-
     </div>
 </nav>
 
