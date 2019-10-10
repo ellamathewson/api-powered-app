@@ -13,46 +13,27 @@
   <script type="text/babel">
     const parseJSON = (xhr, content) => {
       if(xhr.response) {
-        console.dir('in xhr response');
         const obj = JSON.parse(xhr.response);
-        console.dir(obj);
+        console.dir(`obj: ${obj}`);
       
       //if message in response, add to screen
       if(obj.message) {
-        console.dir('have object')
         const p = document.createElement('p');
         p.textContent = `Message: ${xhr.response}`;
         content.appendChild(p);
       }
       
       //if users in response, add to screen
-      if(obj.faveDrinks) {
-        // let drinks = [];
-        // for(let d in obj.faveDrinks) {
-        //   drinks.push(d);
-        // }
+      if(obj.faveDrinks) {      
+        let drinkArray = [];  
+        const allDrinks = JSON.stringify(obj.faveDrinks);
 
-        // for(let i = 0; i < drinks.length; i++) {
-        //   const drinkDiv = document.createElement('div');
-        //   const drinkHeader = document.createElement('h1');
-        //   const stringDrink = JSON.stringify(drinks[i]);
-        //   drinkHeader.textContent = stringDrink;
-        //   content.appendChild(drinkDiv);
-        //   content.appendChild(drinkHeader);
-        // }
+        allDrinks.forEach(drink => {
+          drinkArray.push(drink);
+        });
+        console.dir(`drinkArray: ${drinkArray}`);
 
-        // console.dir('in object');
-        const drinkList = document.createElement('p');
-        const drinks = JSON.stringify(obj.faveDrinks);
-        drinkList.textContent = drinks;
-        console.dir(drinkList);
-        content.appendChild(drinkList); 
-      }
-
-      if(obj.allDrinks) {
-        // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
-        console.dir(obj.allDrinks.coffee);
-       obj.allDrinks.coffee.forEach(drink => {
+        drinkArray.forEach(drink => {
          const drinkName = document.createElement('h2');
          const drinkDate = document.createElement('p');
          const drinkCafe = document.createElement('h3');
@@ -60,12 +41,54 @@
          const drinkCost = document.createElement('p');
          const drinkRating = document.createElement('p');
 
+         // console.log(drink.name);
+         const drinkDiv = document.createElement('div');
+         drinkDiv.style.backgroundColor = "white";
+         drinkDiv.style.border = "1px solid black";
+         drinkDiv.style.width = "40vw";
+         drinkDiv.style.margin = "5vh 20vw";
+         drinkDiv.style.padding = "1em";
+
+         drinkName.textContent = drink.name;
+         drinkDiv.appendChild(drinkName);
+
+         drinkCafe.textContent = `Cafe: ${drink.cafe}`;
+         drinkDiv.appendChild(drinkCafe);
+
+         drinkDate.textContent = drink.date;
+         drinkDiv.appendChild(drinkDate);
+
+         drinkDesc.textContent = drink.description;
+         drinkDiv.appendChild(drinkDesc);
+
+         drinkCost.textContent = `Cost: ${drink.cost}`;
+         drinkDiv.appendChild(drinkCost);
+
+         drinkRating.textContent = `Rating: ${drink.rating}`;
+         drinkDiv.appendChild(drinkRating);
+
+         content.appendChild(drinkDiv);
+       });
+      };
+
+      if(obj.allDrinks) {
+        // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
+        console.dir(obj.allDrinks.coffee);
+        obj.allDrinks.coffee.forEach(drink => {
+         const drinkName = document.createElement('h2');
+         // const drinkDate = document.createElement('p');
+         const drinkCafe = document.createElement('h3');
+         const drinkDesc = document.createElement('p');
+         const drinkCost = document.createElement('p');
+         // const drinkRating = document.createElement('p');
+
          console.log(drink.name);
          const drinkDiv = document.createElement('div');
          drinkDiv.style.backgroundColor = "white";
          drinkDiv.style.border = "1px solid black";
          drinkDiv.style.width = "40vw";
          drinkDiv.style.margin = "5vh 20vw";
+         drinkDiv.style.padding = "1em";
 
          drinkName.textContent = drink.name;
          drinkDiv.appendChild(drinkName);
@@ -141,7 +164,7 @@
       const formData = `name=${drinkField.value}&date=${dateField.value}&cafe=${cafeField.value}&description=${descField.value}&cost=${costField.value}&rating=${ratingField.value}`;
       
       xhr.send(formData);
-      console.dir(formData);
+      console.dir(`form data: ${formData}`);
     
       e.preventDefault();
       return false;
