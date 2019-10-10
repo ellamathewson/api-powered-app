@@ -49,17 +49,18 @@
       }
 
       if(obj.allDrinks) {
-        const drinkList = document.createElement('p');
-        const drinks = JSON.stringify(obj.allDrinks);
-        drinkList.textContent = drinks;
-        console.dir(drinkList);
-        content.appendChild(drinkList); 
-        // for(let i = 0; i < allDrinks.coffee.length; i++) {
-        //   const drink = JSON.stringify(allDrinks.coffee[i]);
-        //   const drinkTitle = document.createElement('p');
-        //   drinkTitle.textContent = drink.name;
-        //   content.appendChild(drinkTitle);
-        // }
+        const drinkName = document.createElement('h1');
+        const drinkDate = document.createElement('h3');
+        const drinkCafe = document.createElement('p');
+        const drinkDesc = document.createElement('p');
+        const drinkCost = document.createElement('p');
+        const drinkRating = document.createElement('p');
+
+        // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
+        console.dir(obj.allDrinks.coffee);
+       // console.dir(`length ${drinks.coffee.length}`);
+        // drinkList.textContent = drinks;
+        // content.appendChild(drinkList); 
       }
     }
     };
