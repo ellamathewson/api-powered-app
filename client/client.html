@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,18 +50,22 @@
       }
 
       if(obj.allDrinks) {
-        const drinkName = document.createElement('h1');
-        const drinkDate = document.createElement('h3');
-        const drinkCafe = document.createElement('p');
-        const drinkDesc = document.createElement('p');
-        const drinkCost = document.createElement('p');
-        const drinkRating = document.createElement('p');
-
         // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
         console.dir(obj.allDrinks.coffee);
-       // console.dir(`length ${drinks.coffee.length}`);
-        // drinkList.textContent = drinks;
-        // content.appendChild(drinkList); 
+       obj.allDrinks.coffee.forEach(drink => {
+         const drinkName = document.createElement('h2');
+         const drinkDate = document.createElement('p');
+         const drinkCafe = document.createElement('h3');
+         const drinkDesc = document.createElement('p');
+         const drinkCost = document.createElement('p');
+         const drinkRating = document.createElement('p');
+
+         console.log(drink.name);
+         drinkName.textContent = drink.name;
+         content.appendChild(drinkName);
+         drinkCafe.textContent = drink.cafe;
+         content.appendChild(drinkCafe);
+       });
       }
     }
     };
@@ -177,48 +182,50 @@
     window.onload = init;
     </script>
 </head>
+
 <body>
   <nav>
     <div id="logo">
-        <h1>Coffee Writings</h1>
+      <h1>Coffee Writings</h1>
     </div>
     <div id="navLinks">
       <button id="newDrink">New Drink</button>
       <button id="seeDrinks">My Drinks</button>
       <button id="allDrinks">All Drinks</button>
     </div>
-</nav>
+  </nav>
 
-<content>
-  <form id="addDrinkForm" action="/addDrink" method="post">
+  <content>
+    <form id="addDrinkForm" action="/addDrink" method="post">
       <div class="formItem">
-      <label for="drink">Drink: </label>
-      <input id="drinkField" type="text" name="drink" />
-  </div>
-  <div class="formItem">
-    <label for="date">Date: </label>
-    <input id="dateField" type="date" name="date" />
-</div>
-  <div class="formItem">
-      <label for="cafeName">Cafe Name: </label>
-      <input id="cafeField" type="text" name="cafeName" />
-  </div>
-  <div class="formItem">
-      <label for="description">Description: </label>
-      <textarea id="descField" type="text" name="description" cols="50" rows="5"></textarea>
-  </div>
-  <div class="formItem">
-      <label for="cost">Cost: </label>
-      <input id="costField" type="number" name="cost" min="0.00" max="10000" step="0.01"/>
-  </div>
-  <div class="formItem">
-    <label for="rating">Rating (0 - 10): </label>
-    <input id="ratingField" type="number" name="rating" min="0" max="10" step="1"/>
-</div>
-      <input type="submit" value="Save to Favorites"/>
-  </form>
-</content>
-<section id="contentResponse"></section>
-<section id="output"></section>
+        <label for="drink">Drink: </label>
+        <input id="drinkField" type="text" name="drink" />
+      </div>
+      <div class="formItem">
+        <label for="date">Date: </label>
+        <input id="dateField" type="date" name="date" />
+      </div>
+      <div class="formItem">
+        <label for="cafeName">Cafe Name: </label>
+        <input id="cafeField" type="text" name="cafeName" />
+      </div>
+      <div class="formItem">
+        <label for="description">Description: </label>
+        <textarea id="descField" type="text" name="description" cols="50" rows="5"></textarea>
+      </div>
+      <div class="formItem">
+        <label for="cost">Cost: </label>
+        <input id="costField" type="number" name="cost" min="0.00" max="10000" step="0.01" />
+      </div>
+      <div class="formItem">
+        <label for="rating">Rating (0 - 10): </label>
+        <input id="ratingField" type="number" name="rating" min="0" max="10" step="1" />
+      </div>
+      <input type="submit" value="Save to Favorites" />
+    </form>
+  </content>
+  <section id="contentResponse"></section>
+  <section id="output"></section>
 </body>
+
 </html>
