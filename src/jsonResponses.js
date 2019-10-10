@@ -66,14 +66,19 @@ const addDrink = (request, response, body) => {
   }
 
   console.dir('update');
-  faveDrinks[body.name].name = body.name;
-  faveDrinks[body.name].cafe = body.cafe;
-  faveDrinks[body.name].date = body.date;
-  faveDrinks[body.name].description = body.description;
-  faveDrinks[body.name].cost = body.cost;
-  faveDrinks[body.name].rating = body.rating;
+  faveDrinks[body.name].name = [];
+  faveDrinks[body.name].cafe = [];
+  faveDrinks[body.name].date = [];
+  faveDrinks[body.name].description = [];
+  faveDrinks[body.name].cost = [];
+  faveDrinks[body.name].rating = [];
 
-  // faveDrinks[body.name].cost = body.cafe;
+  faveDrinks[body.name].name.push(body.name);
+  faveDrinks[body.name].cafe.push(body.cafe);
+  faveDrinks[body.name].date.push(body.date);
+  faveDrinks[body.name].description.push(body.description);
+  faveDrinks[body.name].cost.push(body.cost);
+  faveDrinks[body.name].rating.push(body.rating);
 
   if (responseCode === 201) {
     responseJSON.message = 'Added to favorite drinks!';
