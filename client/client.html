@@ -61,17 +61,38 @@
          const drinkRating = document.createElement('p');
 
          console.log(drink.name);
+         const drinkDiv = document.createElement('div');
+         drinkDiv.style.backgroundColor = "white";
+         drinkDiv.style.border = "1px solid black";
+         drinkDiv.style.width = "40vw";
+         drinkDiv.style.margin = "5vh 20vw";
+
          drinkName.textContent = drink.name;
-         content.appendChild(drinkName);
-         drinkCafe.textContent = drink.cafe;
-         content.appendChild(drinkCafe);
+         drinkDiv.appendChild(drinkName);
+
+         drinkCafe.textContent = `Cafe: ${drink.cafe}`;
+         drinkDiv.appendChild(drinkCafe);
+
+        //  drinkDate.textContent = drink.date;
+        //  drinkDiv.appendChild(drinkDate);
+
+         drinkDesc.textContent = drink.description;
+         drinkDiv.appendChild(drinkDesc);
+
+         drinkCost.textContent = `Cost: ${drink.cost}`;
+         drinkDiv.appendChild(drinkCost);
+
+        //  drinkRating.textContent = `Rating: ${drink.rating}`;
+        //  drinkDiv.appendChild(drinkRating);
+
+         content.appendChild(drinkDiv);
        });
       }
     }
     };
   
     const handleResponse = (xhr) => {
-      const content = document.querySelector('#contentResponse');
+      const content = document.querySelector('#output');
       //check the status code
       switch(xhr.status) {
         case 200: //success
