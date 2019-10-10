@@ -27,10 +27,9 @@
       if(obj.faveDrinks) {      
         let drinkArray = [];  
         const allDrinks = JSON.stringify(obj.faveDrinks);
+        console.dir(`alldrinks: ${allDrinks}`)
 
-        allDrinks.forEach(drink => {
-          drinkArray.push(drink);
-        });
+        drinkArray.push(allDrinks);
         console.dir(`drinkArray: ${drinkArray}`);
 
         drinkArray.forEach(drink => {
