@@ -15,6 +15,7 @@
       if(xhr.response) {
         const obj = JSON.parse(xhr.response);
         console.dir(`obj: ${obj}`);
+        console.dir(xhr.response);
       
       //if message in response, add to screen
       if(obj.message) {
@@ -24,15 +25,11 @@
       }
       
       //if users in response, add to screen
-      if(obj.faveDrinks) {      
-        let drinkArray = [];  
-        const allDrinks = JSON.stringify(obj.faveDrinks);
-        console.dir(`alldrinks: ${allDrinks}`)
+      if(obj.faveDrinks) {     
+        console.log('in fave drinks');
+        console.log(`in favedrinks: ${obj.faveDrinks[0].name}`)
 
-        drinkArray.push(allDrinks);
-        console.dir(`drinkArray = ${drinkArray}`);
-
-        drinkArray.forEach(drink => {
+      obj.faveDrinks.forEach(drink => {
          const drinkName = document.createElement('h2');
          const drinkDate = document.createElement('p');
          const drinkCafe = document.createElement('h3');
@@ -40,7 +37,7 @@
          const drinkCost = document.createElement('p');
          const drinkRating = document.createElement('p');
 
-         // console.log(drink.name);
+      //console.log(drink.name);
          const drinkDiv = document.createElement('div');
          drinkDiv.style.backgroundColor = "white";
          drinkDiv.style.border = "1px solid black";
