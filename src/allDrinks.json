@@ -1,12 +1,11 @@
 { "coffee" :[ {
-  "Affogato": {
       "name": "Affogato",
       "date": "Today",
       "cafe": "Midnight Oil",
       "description": "This is a term that literally means 'drowned'. It is the description of a shot of separately served espresso that is later poured over a the top of a scoop of vanilla ice cream or gelato. This beverage is usually served in a short drink glass and is a Italian desert favourite. Popular Affogatos include Vanilla Affogato, Mocha Affogato, and Peppermint Affogato.",
       "cost": "2.50",
       "rating": ""
-    }}, {
+    }, {
         "name": "Americano",
         "date": "Today",
         "cafe": "Midnight Oil",
