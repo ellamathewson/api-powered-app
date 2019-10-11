@@ -14,7 +14,7 @@ const urlStruct = {
     '/style.css': htmlHandler.getCSS,
     '/getDrinks': jsonHandler.getDrinks,
     '/allDrinks': jsonHandler.getAllDrinks,
-    '/latteImage.jpg': htmlHandler.getImage,
+    '/getImage': htmlHandler.getImage,
     notFound: jsonHandler.notFound,
   },
   HEAD: {

@@ -9,6 +9,10 @@ html, body {
   font-family: 'Amatic SC', serif;
 }
 
+body {
+  background-image: url('/getImage');
+}
+
 h1 {
   color: white;
   font-size: 40px;

@@ -4,9 +4,8 @@ const fs = require('fs');
 const index = fs.readFileSync(`${__dirname}/../client/client.html`);
 // const addDrink = fs.readFileSync(`${__dirname}/../client/addDrink.html`);
 
-
 const css = fs.readFileSync(`${__dirname}/../client/style.css`);
-const latteImage = fs.readFileSync(`${__dirname}/../images/latteImage.jpg`);
+const beansImage = fs.readFileSync(`${__dirname}/../images/beans.jpg`);
 
 const getIndex = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -28,7 +27,7 @@ const getCSS = (request, response) => {
 
 const getImage = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'image/jpeg' });
-  response.write(latteImage);
+  response.write(beansImage);
   response.end();
   // fs.stat(file, (err, status) => {
   //     if(err) {
