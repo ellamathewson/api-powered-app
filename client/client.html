@@ -146,20 +146,20 @@
 
     const showForm = () => {
       const addDrinkForm = document.querySelector("#addDrinkForm");
-      const drinkContent = document.querySelector("#contentResponse");
+      const drinkList = document.querySelector("#drinkLists");
       const outputContent = document.querySelector("#output");
 
 
       if(addDrinkForm.style.display === "none") {
         addDrinkForm.style.display = "block";
-        drinkContent.innerHTML = "";
-        outputContent.style.display = "none";
+        //drinkContent.innerHTML = "";
+        drinkList.style.display = "none";
       }
     }
   
     const requestUpdate = (e, method) => {
       const addDrinkForm = document.querySelector("#addDrinkForm");
-      const drinkContent = document.querySelector("#output");
+      const drinkContent = document.querySelector("#drinkLists");
 
         addDrinkForm.style.display = "none";
         drinkContent.style.display = "block";
@@ -180,11 +180,19 @@
       e.preventDefault();
       return false;
     };
+
+    const sortResponses = () => {
+      const filterValue = document.querySelector("#sortSelect").value;
+      console.log(`sort responses ${filterValue}`);
+    };
   
     const init = () => {   
       const drinkForm = document.querySelector('#addDrinkForm');
       const getDrinkButton = document.querySelector('#seeDrinks');
       const allDrinkButton = document.querySelector('#allDrinks');
+
+      const sortButton = document.querySelector('#sortSelectButton');
+      sortButton.addEventListener('click', sortResponses);
 
       const showFormButton = document.querySelector('#newDrink');
       showFormButton.addEventListener('click', showForm);
@@ -244,8 +252,18 @@
       <input type="submit" value="Save to Favorites" />
     </form>
   </content>
-  <section id="contentResponse"></section>
-  <section id="output"></section>
+  <section id="drinkLists">
+      <div id="sortField">
+          <select id="sortSelect">
+            <option value="lowPrice">Cost (Low to high)</option>
+            <option value="highPrice">Cost (High to Low)</option>
+            <option value="name">Name</option>
+            <option value="rating">Rating</option>
+          </select>
+          <button id="sortSelectButton">Filter</button>
+        </div>
+    <div id="output"></div>
+  </section>
 </body>
 
 </html>

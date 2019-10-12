@@ -80,11 +80,15 @@ content {
   align-content: center;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
   position: fixed;
   overflow-y: scroll;
   width: 80vw;
   margin: 0 10vw;
+}
+
+#sortField {
+  height: 10vh;
 }
 
 article {
@@ -103,6 +107,10 @@ article {
   background-color: rgba(255, 255, 255, 0.75);
   margin: 0 15vw;
   padding: 5vh 5vw;
+}
+
+#drinkLists {
+  display: none;
 }
 
 .formItem {
