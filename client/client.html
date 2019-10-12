@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script type="text/babel">
 
+    let drinkToSort;
+
     const createDrinkDisplay = (drinkArray, content) => {
       drinkArray.forEach(drink => {
          const drinkName = document.createElement('h2');
@@ -58,7 +60,7 @@
       if(xhr.response) {
         const obj = JSON.parse(xhr.response);
         console.dir(`obj: ${obj}`);
-        console.dir(xhr.response);
+        // console.dir(xhr.response);
       
       //if message in response, add to screen
       if(obj.message) {
@@ -68,21 +70,24 @@
       }
       
       //if users in response, add to screen
-      if(obj.faveDrinks) {     
-        console.log('in fave drinks');
+      if(obj.faveDrinks) {   
+        drinkToSort = obj.faveDrinks;  
+        // console.log('in fave drinks');
 
         if(obj.faveDrinks.length == 0) {
           alert('No drinks added to favorites!');
         } else {
         createDrinkDisplay(obj.faveDrinks, content);
-      };
-    }
+        };
+      }
+
       if(obj.allDrinks) {
+        drinkToSort = obj.allDrinks.coffee;
         // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
-        console.dir(obj.allDrinks.coffee);
+        // console.dir(obj.allDrinks.coffee);
         createDrinkDisplay(obj.allDrinks.coffee, content);
        };
-    };
+      };
     };
   
     const handleResponse = (xhr) => {
@@ -184,6 +189,20 @@
     const sortResponses = () => {
       const filterValue = document.querySelector("#sortSelect").value;
       console.log(`sort responses ${filterValue}`);
+
+      switch(filterValue) {
+        case 'name':
+          let alphatized = [];
+          for(let i = 0; i < drinkToSort.length; i++){
+            alphatized.push(drinkToSort[i].name);
+          }
+            alphatized.sort();
+            console.log(`alphatized ${alphatized}`);
+          break;
+        default:
+          console.log('default');
+          break;
+      }
     };
   
     const init = () => {   
