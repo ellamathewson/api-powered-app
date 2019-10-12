@@ -15,6 +15,7 @@
     let drinkToSort;
 
     const createDrinkDisplay = (drinkArray, content) => {
+      content.innerHTML = "";
       drinkArray.forEach(drink => {
          const drinkName = document.createElement('h2');
          const drinkDate = document.createElement('p');
@@ -186,18 +187,50 @@
       return false;
     };
 
+    // const filter = () => {}
+
     const sortResponses = () => {
+      const content = document.querySelector('#output');
+
       const filterValue = document.querySelector("#sortSelect").value;
       console.log(`sort responses ${filterValue}`);
 
       switch(filterValue) {
         case 'name':
-          let alphatized = [];
-          for(let i = 0; i < drinkToSort.length; i++){
-            alphatized.push(drinkToSort[i].name);
-          }
-            alphatized.sort();
-            console.log(`alphatized ${alphatized}`);
+          let alphatized = drinkToSort;
+            alphatized.sort(function(a, b) {
+              if(a.name < b.name) { 
+                return -1; 
+              }
+              if(a.name > b.name) { 
+                return 1;
+              }
+              return 0;
+            });
+            createDrinkDisplay(alphatized, content);
+          break;
+        case 'lowPrice':
+          let lowestPrice = drinkToSort;
+          lowestPrice.sort(function(a, b) {
+            return a.cost - b.cost;
+          });
+          createDrinkDisplay(lowestPrice, content);
+          break;
+        case 'highPrice':
+          let highestPrice = drinkToSort;
+          highestPrice.sort(function(a, b) {
+            return a.cost - b.cost;
+          });
+          highestPrice.reverse();
+          createDrinkDisplay(highestPrice, content);
+          break;
+        case 'rating':
+          let highestRating = drinkToSort;
+          highestRating.sort(function(a, b) {
+            return a.rating - b.rating;
+          });
+          highestRating.reverse();
+          createDrinkDisplay(highestRating, content);
           break;
         default:
           console.log('default');
