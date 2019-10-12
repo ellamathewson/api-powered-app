@@ -71,23 +71,22 @@ content {
 }
 
 #output {
-  /* position: fixed;
-  overflow-y: scroll;
-  overflow-x: hidden; */
-
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+}
+
+#drinkLists {
   position: fixed;
   overflow-y: scroll;
-  width: 80vw;
+  height: 85vh;
   margin: 0 10vw;
 }
 
 #sortField {
+  position: fixed;
   height: 10vh;
 }
 
