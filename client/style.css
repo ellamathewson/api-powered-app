@@ -45,6 +45,10 @@ nav {
   margin: 0 2em 2em 2em;
 }
 
+#hamburgerLink {
+  display: none;
+}
+
 button, #formSubmit {
   background-color: #48321d;
   border-radius: 10px;
@@ -60,15 +64,6 @@ button:hover, #formSubmit:hover {
   cursor: pointer;
   background-color: #b99085;
   border-radius: 10px;
-}
-
-content {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
 }
 
 #output {
@@ -111,24 +106,37 @@ textarea, input {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#addDrinkForm {
+content {
+  display: table;
   width: 50vw;
-  border-radius: 25px;
+  margin: 0 25vw;
   background-color: rgba(255, 255, 255, 0.75);
-  margin: 0 35vw;
-  padding: 5vh 5vw;
-}
-
-#formSubmit {
-  width: 50vw;
-}
-
-#drinkLists {
-  display: none;
+  border-radius: 25px;
 }
 
 .formItem {
   font-size: 25px;
+  width: 90%;
+}
+
+#addDrinkForm {
+  /* max-width: 50%;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 0 35vw;
+  padding: 5vh 5vw;
+  text-align: center; */
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#formSubmit {
+  width: 25vw;
+}
+
+#drinkLists {
+  display: none;
 }
 
 label {
@@ -181,4 +189,13 @@ input, textarea {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b99085; 
+}
+
+@media screen and (max-width: 824px) {
+  #navLinks {
+    display: none;
+  }
+  #hamburgerLink {
+    display: block;
+  }
 }
