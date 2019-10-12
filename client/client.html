@@ -11,6 +11,49 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script type="text/babel">
+
+    const createDrinkDisplay = (drinkArray, content) => {
+      drinkArray.forEach(drink => {
+         const drinkName = document.createElement('h2');
+         const drinkDate = document.createElement('p');
+         const drinkCafe = document.createElement('h3');
+         const drinkDesc = document.createElement('p');
+         const drinkCost = document.createElement('p');
+         const drinkRating = document.createElement('p');
+
+         const drinkDiv = document.createElement('div');
+         drinkDiv.style.backgroundColor = "white";
+         drinkDiv.style.border = "1px solid black";
+         drinkDiv.style.width = "40vw";
+         drinkDiv.style.margin = "5vh 20vw";
+         drinkDiv.style.padding = "1em";
+
+         drinkName.textContent = drink.name;
+         drinkDiv.appendChild(drinkName);
+
+         drinkCafe.textContent = `Cafe: ${drink.cafe}`;
+         drinkDiv.appendChild(drinkCafe);
+
+         if(drink.date) {
+          drinkDate.textContent = drink.date;
+          drinkDiv.appendChild(drinkDate);
+         };
+
+         drinkDesc.textContent = drink.description;
+         drinkDiv.appendChild(drinkDesc);
+
+         drinkCost.textContent = `Cost: ${drink.cost}`;
+         drinkDiv.appendChild(drinkCost);
+
+         if(drink.rating) {
+          drinkRating.textContent = `Rating: ${drink.rating}`;
+          drinkDiv.appendChild(drinkRating);
+         };
+
+         content.appendChild(drinkDiv);
+    });
+  };
+
     const parseJSON = (xhr, content) => {
       if(xhr.response) {
         const obj = JSON.parse(xhr.response);
@@ -27,87 +70,19 @@
       //if users in response, add to screen
       if(obj.faveDrinks) {     
         console.log('in fave drinks');
-        console.log(`in favedrinks: ${obj.faveDrinks[0].name}`)
 
-      obj.faveDrinks.forEach(drink => {
-         const drinkName = document.createElement('h2');
-         const drinkDate = document.createElement('p');
-         const drinkCafe = document.createElement('h3');
-         const drinkDesc = document.createElement('p');
-         const drinkCost = document.createElement('p');
-         const drinkRating = document.createElement('p');
-
-      //console.log(drink.name);
-         const drinkDiv = document.createElement('div');
-         drinkDiv.style.backgroundColor = "white";
-         drinkDiv.style.border = "1px solid black";
-         drinkDiv.style.width = "40vw";
-         drinkDiv.style.margin = "5vh 20vw";
-         drinkDiv.style.padding = "1em";
-
-         drinkName.textContent = drink.name;
-         drinkDiv.appendChild(drinkName);
-
-         drinkCafe.textContent = `Cafe: ${drink.cafe}`;
-         drinkDiv.appendChild(drinkCafe);
-
-         drinkDate.textContent = drink.date;
-         drinkDiv.appendChild(drinkDate);
-
-         drinkDesc.textContent = drink.description;
-         drinkDiv.appendChild(drinkDesc);
-
-         drinkCost.textContent = `Cost: ${drink.cost}`;
-         drinkDiv.appendChild(drinkCost);
-
-         drinkRating.textContent = `Rating: ${drink.rating}`;
-         drinkDiv.appendChild(drinkRating);
-
-         content.appendChild(drinkDiv);
-       });
+        if(obj.faveDrinks.length == 0) {
+          alert('No drinks added to favorites!');
+        } else {
+        createDrinkDisplay(obj.faveDrinks, content);
       };
-
+    }
       if(obj.allDrinks) {
         // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
         console.dir(obj.allDrinks.coffee);
-        obj.allDrinks.coffee.forEach(drink => {
-         const drinkName = document.createElement('h2');
-         // const drinkDate = document.createElement('p');
-         const drinkCafe = document.createElement('h3');
-         const drinkDesc = document.createElement('p');
-         const drinkCost = document.createElement('p');
-         // const drinkRating = document.createElement('p');
-
-         console.log(drink.name);
-         const drinkDiv = document.createElement('div');
-         drinkDiv.style.backgroundColor = "white";
-         drinkDiv.style.border = "1px solid black";
-         drinkDiv.style.width = "40vw";
-         drinkDiv.style.margin = "5vh 20vw";
-         drinkDiv.style.padding = "1em";
-
-         drinkName.textContent = drink.name;
-         drinkDiv.appendChild(drinkName);
-
-         drinkCafe.textContent = `Cafe: ${drink.cafe}`;
-         drinkDiv.appendChild(drinkCafe);
-
-        //  drinkDate.textContent = drink.date;
-        //  drinkDiv.appendChild(drinkDate);
-
-         drinkDesc.textContent = drink.description;
-         drinkDiv.appendChild(drinkDesc);
-
-         drinkCost.textContent = `Cost: ${drink.cost}`;
-         drinkDiv.appendChild(drinkCost);
-
-        //  drinkRating.textContent = `Rating: ${drink.rating}`;
-        //  drinkDiv.appendChild(drinkRating);
-
-         content.appendChild(drinkDiv);
-       });
-      }
-    }
+        createDrinkDisplay(obj.allDrinks.coffee, content);
+       };
+    };
     };
   
     const handleResponse = (xhr) => {
@@ -172,10 +147,13 @@
     const showForm = () => {
       const addDrinkForm = document.querySelector("#addDrinkForm");
       const drinkContent = document.querySelector("#contentResponse");
+      const outputContent = document.querySelector("#output");
+
 
       if(addDrinkForm.style.display === "none") {
         addDrinkForm.style.display = "block";
         drinkContent.innerHTML = "";
+        outputContent.style.display = "none";
       }
     }
   
