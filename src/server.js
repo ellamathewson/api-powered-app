@@ -8,6 +8,7 @@ const jsonHandler = require('./jsonResponses.js');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
+// used to sort through urls
 const urlStruct = {
   GET: {
     '/': htmlHandler.getIndex,
@@ -49,18 +50,18 @@ const handlePost = (request, response, parsedUrl) => {
   }
 };
 
+// handles get requests
 const handleGet = (request, response, parsedUrl) => {
   if (urlStruct[request.method][parsedUrl.pathname]) {
-    // console.dir('in handle get if');
     urlStruct[request.method][parsedUrl.pathname](request, response);
   } else {
     urlStruct[request.method].notFound(request, response);
   }
 };
 
+// on request, parses through URL and either sends to post or get
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
-  // console.dir(parsedUrl);
   if (request.method === 'POST') {
     handlePost(request, response, parsedUrl);
   } else {
@@ -68,6 +69,7 @@ const onRequest = (request, response) => {
   }
 };
 
+// creates the server
 http.createServer(onRequest).listen(port);
 
 console.log(`Listening on 127.0.0.1: ${port}`);
