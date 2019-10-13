@@ -4,8 +4,10 @@
 
 // Descriptions of AllDrinks from https://github.com/CoffeeJson/json/blob/gh-pages/coffee.json, by Robert James Gabriel
 
+// array holding all of the favorite drinks
 const faveDrinks = [];
-// const today = new Date();
+
+// grabs the presaved JSOn object of allDrinks
 const allDrinks = require('./allDrinks.json');
 
 const respondJSON = (request, response, status, object) => {
@@ -25,6 +27,7 @@ const respondJSONMeta = (request, response, status) => {
   response.end();
 };
 
+// grabs the favorite drinks from array
 const getDrinks = (request, response) => {
   const responseJSON = {
     faveDrinks,
@@ -35,6 +38,7 @@ const getDrinks = (request, response) => {
 
 const getDrinksMeta = (request, response) => respondJSONMeta(request, response, 200);
 
+// grabs all the drinks from the page
 const getAllDrinks = (request, response) => {
   const responseJSON = {
     allDrinks,
@@ -42,13 +46,18 @@ const getAllDrinks = (request, response) => {
   respondJSON(request, response, 200, responseJSON);
 };
 
+const getAllDrinksMeta = (request, response) => respondJSONMeta(request, response, 200);
+
+// adds drink to faveDrinks array
 const addDrink = (request, response, body) => {
   console.dir(body);
   const responseJSON = {
     message: 'All fields are required',
   };
 
+  // all fields must be filled out for it to be added
   if (!body.name || !body.date || !body.cafe || !body.description || !body.cost || !body.rating) {
+    // if it doesnt, respond to user that there are missing parameters
     responseJSON.id = 'missingParams';
     return respondJSON(request, response, 400, responseJSON);
   }
@@ -66,6 +75,7 @@ const addDrink = (request, response, body) => {
     }
   }
 
+  // if it's updating, updates the data to the new data provided
   if (responseCode === 204) {
     faveDrinks[drinkIndex].name = body.name;
     faveDrinks[drinkIndex].date = body.date;
@@ -76,6 +86,7 @@ const addDrink = (request, response, body) => {
 
     return respondJSONMeta(request, response, responseCode);
   }
+
   // otherwise create a new drink in the array
   console.dir('pushing new object');
   faveDrinks.push({
@@ -87,38 +98,9 @@ const addDrink = (request, response, body) => {
     rating: body.rating,
   });
 
+  // responds to the page
   responseJSON.message = 'Added to favorite drinks!';
   return respondJSON(request, response, responseCode, responseJSON);
-
-  // if (faveDrinks[body.name]) {
-  //   if (faveDrinks[body.name].name === body.name
-  //     && faveDrinks[body.name].date === body.date
-  //     && faveDrinks[body.name].cafe === body.cafe) {
-  //     responseCode = 204;
-  //   }
-  // } else {
-  //   faveDrinks[body.name] = {};
-  // }
-
-  // if drink already exists, edit current one
-  // faveDrinks[body.name].name = [];
-  // faveDrinks[body.name].cafe = [];
-  // faveDrinks[body.name].date = [];
-  // faveDrinks[body.name].description = [];
-  // faveDrinks[body.name].cost = [];
-  // faveDrinks[body.name].rating = [];
-
-  // faveDrinks[body.name].name.push(body.name);
-  // faveDrinks[body.name].cafe.push(body.cafe);
-  // faveDrinks[body.name].date.push(body.date);
-  // faveDrinks[body.name].description.push(body.description);
-  // faveDrinks[body.name].cost.push(body.cost);
-  // faveDrinks[body.name].rating.push(body.rating);
-
-  // if (responseCode === 201) {
-  //   responseJSON.message = 'Added to favorite drinks!';
-  //   return respondJSON(request, response, responseCode, responseJSON);
-  // } return respondJSONMeta(request, response, responseCode);
 };
 
 const notFound = (request, response) => {
@@ -142,6 +124,7 @@ module.exports = {
   getDrinks,
   getDrinksMeta,
   getAllDrinks,
+  getAllDrinksMeta,
   notFound,
   notFoundMeta,
 };
