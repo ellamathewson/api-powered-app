@@ -1,3 +1,4 @@
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Josefin+Slab&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
@@ -21,15 +22,7 @@ h1 {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  margin: 0 1em 0 1em;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
+/*  Coffee Writings logo */
 #logo {
   font-family: 'Amatic SC', cursive;
 }
@@ -38,6 +31,7 @@ a:hover {
   cursor: default;
 }
 
+/* Navigation menu */
 nav {
   display: flex;
   flex-direction: row;
@@ -46,7 +40,8 @@ nav {
   margin: 0 2em 2em 2em;
 }
 
-button, #formSubmit, #dropdownButton {
+/* submit button and nav buttons */
+button, #formSubmit {
   background-color: #48321d;
   border-radius: 10px;
   border: none;
@@ -63,6 +58,7 @@ button:hover, #formSubmit:hover {
   border-radius: 10px;
 }
 
+/* div holding lists of drinks */
 #output {
   display: flex;
   flex-direction: column;
@@ -71,13 +67,16 @@ button:hover, #formSubmit:hover {
   align-items: center;
 }
 
+/* Div holding the select bar for sorting div and drink output */
 #drinkLists {
+  display: none;
   position: fixed;
   overflow-y: scroll;
   height: 85vh;
   margin: 0 10vw;
 }
 
+/* select field for sorting drinks and submit button */
 #sortField {
   display: flex;
   flex-direction: column;
@@ -85,6 +84,7 @@ button:hover, #formSubmit:hover {
   height: 10vh;
 }
 
+/* select field */
 select {
   border: none;
   width: 175px;
@@ -93,16 +93,15 @@ select {
   font-size: 25px;
 }
 
-article {
-  width: 80vw;
-  margin: 5vh 10vw;
-  border: 1px solid black;
-}
-
+/* Changed text to match all other inputs */
 textarea, input {
   font-family: Arial, Helvetica, sans-serif;
+  display:inline-block;
+  width: 200px;
+  margin:0 0 7px 0;
 }
 
+/* holds form and output */
 content {
   display: table;
   width: 50vw;
@@ -111,11 +110,7 @@ content {
   border-radius: 25px;
 }
 
-.formItem {
-  font-size: 25px;
-  width: 90%;
-}
-
+/* Form */
 #addDrinkForm {
   font-family: 'Amatic SC', cursive;
   display: table-cell;
@@ -123,14 +118,18 @@ content {
   vertical-align: middle;
 }
 
+/* individual form items */
+.formItem {
+  font-size: 25px;
+  width: 90%;
+}
+
+/* form submit button */
 #formSubmit {
   width: 25vw;
 }
 
-#drinkLists {
-  display: none;
-}
-
+/* labels for form */
 label {
   display:inline-block;
   width: 150px;
@@ -139,19 +138,15 @@ label {
   margin:0 0 7px 0;
 }
 
-input, textarea {
-  display:inline-block;
-  width: 200px;
-  margin:0 0 7px 0;
-}​
-
-#drinkField, #dateField, #cafeField, #costField, #ratingField {
+/* Formatting for fields on form */
+.inputField {
   height: 35px;
   border: none;
   border: 1px solid #48321d;
   background-color: white;
 }
 
+/* description field */
 #descField {
   height: 50px;
   border: 1px solid #48321d;
@@ -161,6 +156,7 @@ input, textarea {
 /* 
   https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
 */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -183,6 +179,7 @@ input, textarea {
   background: #b99085; 
 }
 
+/* Responsive features */
 @media screen and (max-width: 824px) {
   #navLinks {
     width: 80%;
