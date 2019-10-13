@@ -279,15 +279,16 @@
     const init = () => {   
       // grabs different elements and buttons
       const drinkForm = document.querySelector('#addDrinkForm');
-      const getDrinkButton = document.querySelector('.seeDrinks');
-      const allDrinkButton = document.querySelector('.allDrinks');
+
+      const getDrinkButton = document.querySelector('#seeDrinks');
+      const allDrinkButton = document.querySelector('#allDrinks');
 
       // sets up sorting button to call corresponding function 
       const sortButton = document.querySelector('#sortSelectButton');
       sortButton.addEventListener('click', sortResponses);
 
       // sets up new drink button to show the form
-      const showFormButton = document.querySelector('.newDrink');
+      const showFormButton = document.querySelector('#newDrink');
       showFormButton.addEventListener('click', showForm);
       
       //create handlers for viewing the drinks saved by user and all drinks
@@ -311,18 +312,10 @@
       <h1>Coffee Writings</h1>
     </div>
     <div id="navLinks">
-      <button class="newDrink">New Drink</button>
-      <button class="seeDrinks">My Drinks</button>
-      <button class="allDrinks">All Drinks</button>
+      <button class="navButton" id="newDrink">New Drink</button>
+      <button class="navButton" id="seeDrinks">My Drinks</button>
+      <button class="navButton" id="allDrinks">All Drinks</button>
     </div>
-    <div id="hamburgerLink">
-        <button id="dropdownButton">Options</button>
-        <div class="dropdownContent">
-            <button class="newDrink">New Drink</button>
-            <button class="seeDrinks">My Drinks</button>
-            <button class="allDrinks">All Drinks</button>
-        </div>
-      </div>
   </nav>
   <content>
     <form id="addDrinkForm" action="/addDrink" method="post">

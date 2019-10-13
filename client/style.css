@@ -46,11 +46,6 @@ nav {
   margin: 0 2em 2em 2em;
 }
 
-#hamburgerLink {
-  display: none;
-  position: relative;
-}
-
 button, #formSubmit, #dropdownButton {
   background-color: #48321d;
   border-radius: 10px;
@@ -66,21 +61,6 @@ button:hover, #formSubmit:hover {
   cursor: pointer;
   background-color: #b99085;
   border-radius: 10px;
-}
-
-#hamburgerLink:hover .dropdownContent {
-  display: block;
-}
-
-.dropdownContent {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-}
-
-.dropdownContent button {
-  display: block;
 }
 
 #output {
@@ -205,10 +185,12 @@ input, textarea {
 
 @media screen and (max-width: 824px) {
   #navLinks {
-    display: none;
+    width: 80%;
   }
-  #hamburgerLink {
-    display: block;
+  .navButton {
+    width: 20%;
+    font-size: 20px;
+    padding: 5px 5px;
   }
   content {
     width: 90vw;
