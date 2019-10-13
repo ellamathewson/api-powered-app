@@ -218,6 +218,33 @@
       return false;
     };
 
+    // helper function for drink name and cafe name filtering
+    const alphatize = (prop, content) => {
+      let alphatized = drinkToSort;
+        alphatized.sort(function(a, b) {
+          if(a[prop] < b[prop]) { 
+            return -1; 
+          }
+          if(a[prop] > b[prop]) { 
+            return 1;
+          }
+          return 0;
+        });
+        createDrinkDisplay(alphatized, content);
+    };
+
+    // helper function for sorting based on numeric values
+    const numerically = (prop, content, reverse) => {
+      let newOrder = drinkToSort;
+        newOrder.sort(function(a, b) {
+          return a[prop] - b[prop];
+        });
+        if(reverse) {
+          newOrder.reverse();
+        }
+        createDrinkDisplay(newOrder, content);
+    };
+
     // organizes the drink pages
     const sortResponses = () => {
       // grabs section 
@@ -230,43 +257,23 @@
       switch(filterValue) {
         // sorting alphabetically 
         case 'name':
-          let alphatized = drinkToSort;
-            alphatized.sort(function(a, b) {
-              if(a.name < b.name) { 
-                return -1; 
-              }
-              if(a.name > b.name) { 
-                return 1;
-              }
-              return 0;
-            });
-            createDrinkDisplay(alphatized, content);
+          alphatize('name', content);
+          break;
+          // cafe name alphabetically
+        case 'cafeName':
+          alphatize('cafe', content);
           break;
           // lowest to highest price
         case 'lowPrice':
-          let lowestPrice = drinkToSort;
-          lowestPrice.sort(function(a, b) {
-            return a.cost - b.cost;
-          });
-          createDrinkDisplay(lowestPrice, content);
+          numerically('cost', content, false);
           break;
           // highest price to lowest price
         case 'highPrice':
-          let highestPrice = drinkToSort;
-          highestPrice.sort(function(a, b) {
-            return a.cost - b.cost;
-          });
-          highestPrice.reverse();
-          createDrinkDisplay(highestPrice, content);
+          numerically('cost', content, true);
           break;
           // highest ranking to lowest ranking
         case 'rating':
-          let highestRating = drinkToSort;
-          highestRating.sort(function(a, b) {
-            return a.rating - b.rating;
-          });
-          highestRating.reverse();
-          createDrinkDisplay(highestRating, content);
+          numerically('rating', content, true);
           break;
         default:
           // no default sorting 
@@ -353,6 +360,7 @@
             <option value="lowPrice">Cost (Low to high)</option>
             <option value="highPrice">Cost (High to Low)</option>
             <option value="name">Name</option>
+            <option value="cafeName">Cafe Name</option>
             <option value="rating">Rating</option>
           </select>
           <button id="sortSelectButton">Filter</button>
