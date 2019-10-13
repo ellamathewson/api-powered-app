@@ -18,11 +18,11 @@
       content.innerHTML = "";
       drinkArray.forEach(drink => {
          const drinkName = document.createElement('h2');
-         const drinkDate = document.createElement('p');
-         const drinkCafe = document.createElement('h3');
-         const drinkDesc = document.createElement('p');
-         const drinkCost = document.createElement('p');
-         const drinkRating = document.createElement('p');
+         const drinkDate = document.createElement('h4');
+         const drinkCafe = document.createElement('h4');
+         const drinkDesc = document.createElement('h5');
+         const drinkCost = document.createElement('h4');
+         const drinkRating = document.createElement('h4');
 
          const drinkDiv = document.createElement('div');
          drinkDiv.style.backgroundColor = "white";
@@ -30,6 +30,9 @@
          drinkDiv.style.width = "40vw";
          drinkDiv.style.margin = "5vh 20vw";
          drinkDiv.style.padding = "1em";
+
+         drinkName.style.fontFamily = 'Amatic SC';
+         drinkName.style.fontSize = '30px';
 
          drinkName.textContent = drink.name;
          drinkDiv.appendChild(drinkName);
@@ -42,11 +45,11 @@
           drinkDiv.appendChild(drinkDate);
          };
 
-         drinkDesc.textContent = drink.description;
-         drinkDiv.appendChild(drinkDesc);
-
          drinkCost.textContent = `Cost: ${drink.cost}`;
          drinkDiv.appendChild(drinkCost);
+
+         drinkDesc.textContent = drink.description;
+         drinkDiv.appendChild(drinkDesc);
 
          if(drink.rating) {
           drinkRating.textContent = `Rating: ${drink.rating}`;
@@ -147,6 +150,16 @@
       console.dir(`form data: ${formData}`);
     
       e.preventDefault();
+
+      drinkField.value = "";
+      dateField.value = "";
+      cafeField.value = "";
+      descField.value = "";
+      costField.value = "";
+      ratingField.value = "";
+      
+      alert('Added to favorite drinks');
+
       return false;
     };
 
@@ -240,13 +253,13 @@
   
     const init = () => {   
       const drinkForm = document.querySelector('#addDrinkForm');
-      const getDrinkButton = document.querySelector('#seeDrinks');
-      const allDrinkButton = document.querySelector('#allDrinks');
+      const getDrinkButton = document.querySelector('.seeDrinks');
+      const allDrinkButton = document.querySelector('.allDrinks');
 
       const sortButton = document.querySelector('#sortSelectButton');
       sortButton.addEventListener('click', sortResponses);
 
-      const showFormButton = document.querySelector('#newDrink');
+      const showFormButton = document.querySelector('.newDrink');
       showFormButton.addEventListener('click', showForm);
       
       //create handler
@@ -270,14 +283,17 @@
       <h1>Coffee Writings</h1>
     </div>
     <div id="navLinks">
-      <button id="newDrink">New Drink</button>
-      <button id="seeDrinks">My Drinks</button>
-      <button id="allDrinks">All Drinks</button>
+      <button class="newDrink">New Drink</button>
+      <button class="seeDrinks">My Drinks</button>
+      <button class="allDrinks">All Drinks</button>
     </div>
     <div id="hamburgerLink">
-        <button id="newDrink">New Drink</button>
-        <button id="seeDrinks">My Drinks</button>
-        <button id="allDrinks">All Drinks</button>
+        <button id="dropdownButton">Options</button>
+        <div class="dropdownContent">
+            <button class="newDrink">New Drink</button>
+            <button class="seeDrinks">My Drinks</button>
+            <button class="allDrinks">All Drinks</button>
+        </div>
       </div>
   </nav>
   <content>
@@ -309,6 +325,7 @@
       <input id="formSubmit" type="submit" value="Save to Favorites" />
     </form>
   </content>
+
   <section id="drinkLists">
       <div id="sortField">
           <select id="sortSelect">
@@ -322,5 +339,4 @@
     <div id="output"></div>
   </section>
 </body>
-
 </html>

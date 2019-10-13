@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Josefin+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 html, body {
   height: 100%;
@@ -6,7 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #B89D7F;
-  font-family: 'Amatic SC', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -47,9 +48,10 @@ nav {
 
 #hamburgerLink {
   display: none;
+  position: relative;
 }
 
-button, #formSubmit {
+button, #formSubmit, #dropdownButton {
   background-color: #48321d;
   border-radius: 10px;
   border: none;
@@ -64,6 +66,21 @@ button:hover, #formSubmit:hover {
   cursor: pointer;
   background-color: #b99085;
   border-radius: 10px;
+}
+
+#hamburgerLink:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+}
+
+.dropdownContent button {
+  display: block;
 }
 
 #output {
@@ -120,12 +137,7 @@ content {
 }
 
 #addDrinkForm {
-  /* max-width: 50%;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.75);
-  margin: 0 35vw;
-  padding: 5vh 5vw;
-  text-align: center; */
+  font-family: 'Amatic SC', cursive;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -197,5 +209,25 @@ input, textarea {
   }
   #hamburgerLink {
     display: block;
+  }
+  content {
+    width: 90vw;
+    margin: 0 5vw;
+  }
+  #formSubmit {
+    width: 90vw;
+  }
+  label {
+    width: 100px;
+  }
+  #sortField {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #drinkLists {
+    display: flex;
+    flex-direction: column;
   }
 }
