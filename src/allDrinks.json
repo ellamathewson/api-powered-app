@@ -8,56 +8,56 @@
     }, {
         "name": "Americano",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Equal Grounds",
         "description": "Also known as 'Lungo' or 'Long Black' and made by diluting 1-2 shots of espresso with hot water in order to approximate the texture, flavor and body of an American-style drip coffee. Said to have been originally devised as a sort of insult to Americans who wanted their Italian espresso diluted",
         "cost": "2.50",
         "rating": ""
       }, {
         "name": "Babycino",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Starry Nights",
         "description": "A cappuccino styled drink served in an up-market café typically for children. It consists of warm milk in a small cup and topped with milk froth and chocolate powder. No espresso coffee essence is added",
         "cost": "1.50",
         "rating": ""
       }, {
         "name": "Breve",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Beanz",
         "description": "A term in Italian that means short and is used to describe an espresso coffee drink made with a half-and-half light cream or semi-skim milk instead of full fat milk",
         "cost": "2.75",
         "rating": ""
       }, {
         "name": "Caffe Latte or “Latte”",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Starbucks",
         "description": "A ‘premium milk coffee experience’. Freshly steamed milk without foam served in a tall glass with a shot of espresso coffee",
         "cost": "2.55",
         "rating": ""
       }, {
         "name": "Caffe Mocha",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Java Wally's",
         "description": "A combination of chocolate syrup and a shot of espresso, topped with steamed milk and a layer of micro-foam. Finished with a sprinkled of chocolate",
         "cost": "2.50",
         "rating": ""
       }, {
         "name": "Cappuccino Chiaro",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "College Grind",
         "description": "(AKA Wet or Light cappuccino): Cappuccino prepared with more milk than usual",
         "cost": "3.50",
         "rating": ""
       }, {
         "name": "Cappuccino Scuro",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Artesano",
         "description": "(AKA Dry or Dark cappuccino) Cappuccino prepared with less milk than usual",
         "cost": "3.25",
         "rating": ""
       }, {
         "name": "Cappuccino",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Dunkin",
         "description": "A ‘traditional morning heart starter’. Steamed foamed velvety milk poured over one shot (1) of coffee oil extract made from 12gm of freshly ground beans producing 38ml of essence. Finished by topping with foam and a sprinkle of chocolate powder. Served in a pre heated vitrified ceramic cup",
         "cost": "2.25",
         "rating": ""
@@ -71,91 +71,91 @@
       }, {
         "name": "Cortado",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Equal Grounds",
         "description": "means 'cut' in Spanish so the double shot espresso served in a demetesse glass supported with a metal handle is 'cut' with an equal part of hot milk, making it in between the size and strength of a macchiato and a cappuccino. It is popular in Spain and Portugal, as well as throughout Latin America and Cuba, where it is drunk in the afternoon. Variations include more froth on top than a traditional cortado and occasionally with different names such as Piccolo or Gibraltar",
         "cost": "2.55",
         "rating": ""
       }, {
         "name": "Bicerin",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Coffee Connection",
         "description": "a traditional hot drink native to Turin, Italy, made of espresso, drinking chocolate and whole milk",
         "cost": "3.75",
         "rating": ""
       }, {
         "name": "Ethiopian Coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Coffee Connection",
         "description": "beans roasted in the presence of the drinkers immediately prior to brewing, very coarsely ground by hand in a mortar and pestle",
         "cost": "4.00",
         "rating": ""
       }, {
         "name": "White coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Beanz",
         "description": "A black coffee with added milk.this good types of coffee",
         "cost": "2.99",
         "rating": ""
       }, {
         "name": "Frappe",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "College Grind",
         "description": "Popular in parts of Europe and Latin America, especially during the summer months. Originally it was a cold espresso, but it has more recently been prepared by putting 1-2 teaspoons of instant coffee with sugar, water and ice. The drink is served in a long glass",
         "cost": "2.89",
         "rating": ""
       }, {
         "name": "Vietnamese style coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Equal Grounds",
         "description": "A drink made by dripping hot water though a metal mesh, with the intense brew then poured over ice and sweetened, condensed milk. This process uses a lot more coffee grounds and is thus a lot slower than most kinds of brewing",
         "cost": "3.50",
         "rating": ""
       }, {
         "name": "Turkish Coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Starry Nights",
         "description": "Made by boiling finely ground coffee and water together to form a muddy, thick coffee mix. In fact, the strongest Turkish coffee can almost keep a spoon standing upright. It’s often made in what’s known as an Ibrik, a long-handled, open, brass or copper pot. It is then poured, unfiltered, into tiny Demitasse cups, with the fine grounds included. It’s then left to settle for a while before serving, with sugar and spices often added to the cup",
         "cost": "3.25",
         "rating": ""
       }, {
         "name": "Flat White",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Dunkin",
         "description": "White Coffee” - ‘uncompromising taste’.Steamed microfroam milk poured through and under the espresso crème produced from one shot (1) of coffee extract made on 12gm of freshly ground coffee producing 38ml of essence. Served in a pre heated vitrified ceramic cup. A common espresso coffee order in Australia/New Zealand. Great for latte art!",
         "cost": "2.95",
         "rating": ""
       }, {
         "name": "Hammerhead",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Java Wally's",
         "description": "A coffee drink only served in the USA. It is an American term for a shot of espresso in a coffee cup that is topped up with drip-filtered coffee. As Kris Rosvold explains in the comments: In Oregon, the hammerhead is usually known as a red eye and uses 2 shots of espresso topped up in a 16oz travel mug with drip coffee. It's also sometimes called a 'shot in the dark'",
         "cost": "1.95",
         "rating": ""
       }, {
         "name": "Irish Coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Java Wally's",
         "description": "Coffee mixed with a dash of Irish whiskey and served with cream on top",
         "cost": "2.75",
         "rating": ""
       }, {
         "name": "Macchiato",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Artesano",
         "description": "Meaning “stained” - Described as ‘strong, marked or stained’. A touch of steamed foamed milk added to a double shot of coffee extract made from 24gm of fresh ground beans producing 75ml of essence. Served in glass",
         "cost": "2.00",
         "rating": ""
       }, {
         "name": "Mazagran",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Artesano",
         "description": "A French drink composed of cold coffee and seltzer water. First created by the French soldiers in 1840 in the town of Argelia. A variation includes iced coffee made with maraschino",
         "cost": "3.00",
         "rating": ""
       }, {
         "name": "Quad",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Beanz",
         "description": "An espresso drink made with four shots of coffee",
         "cost": "2.25",
         "rating": ""
@@ -176,7 +176,7 @@
       }, {
         "name": "Viennese Coffee",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Java Wally's",
         "description": "Brewed black coffee of any roast or origin topped and served with whipped cream",
         "cost": "3.75",
         "rating": ""
@@ -197,21 +197,21 @@
       }, {
         "name": "Doppio",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Beanz",
         "description": "Italian term for double. Double Espresso or twice the amount of coffee and twice the amount of water. Basically it describes two shots of espresso in one demitasse container",
         "cost": "3.45",
         "rating": ""
       }, {
         "name": "Espresso con Panna",
         "date": "Today",
-        "cafe": "Midnight Oil",
+        "cafe": "Equal Grounds",
         "description": "American term where a shot is extracted longer for a bit of extra espresso. Tends to maximizes the caffeine but will mostly produce a more bitter cup",
         "cost": "2.84",
         "rating": ""
       }, {
         "name": "Caffe Latte",
         "date": "Today",
-        "cafe": "Starbucks",
+        "cafe": "Dunkin",
         "description": "A dark, rich espresso balanced with steamed milk and a light layer of foam. A perfect milk forward warm up",
         "cost": "2.76",
         "rating": ""
