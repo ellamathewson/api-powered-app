@@ -12,11 +12,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script type="text/babel">
 
+    // global variable used to know if faveDrinks or allDrinks is being displayed
     let drinkToSort;
 
+    // sets up HTML to show drinks on page
     const createDrinkDisplay = (drinkArray, content) => {
+      // clears content
       content.innerHTML = "";
+
       drinkArray.forEach(drink => {
+        // creates elements
          const drinkName = document.createElement('h2');
          const drinkDate = document.createElement('h4');
          const drinkCafe = document.createElement('h4');
@@ -24,6 +29,7 @@
          const drinkCost = document.createElement('h4');
          const drinkRating = document.createElement('h4');
 
+         // creates div to hold all the elements and formats it
          const drinkDiv = document.createElement('div');
          drinkDiv.style.backgroundColor = "white";
          drinkDiv.style.border = "1px solid black";
@@ -34,12 +40,16 @@
          drinkName.style.fontFamily = 'Amatic SC';
          drinkName.style.fontSize = '30px';
 
+         // assigns values of object to created HTML elements
          drinkName.textContent = drink.name;
          drinkDiv.appendChild(drinkName);
 
          drinkCafe.textContent = `Cafe: ${drink.cafe}`;
          drinkDiv.appendChild(drinkCafe);
 
+         /* since allDrinks object doesn't have date or rating, 
+            checks to see if there is an element there
+          */
          if(drink.date) {
           drinkDate.textContent = drink.date;
           drinkDiv.appendChild(drinkDate);
@@ -56,15 +66,16 @@
           drinkDiv.appendChild(drinkRating);
          };
 
+         // appends elements to content
          content.appendChild(drinkDiv);
     });
   };
 
+  // parses the response 
     const parseJSON = (xhr, content) => {
       if(xhr.response) {
         const obj = JSON.parse(xhr.response);
         console.dir(`obj: ${obj}`);
-        // console.dir(xhr.response);
       
       //if message in response, add to screen
       if(obj.message) {
@@ -73,7 +84,7 @@
         content.appendChild(p);
       }
       
-      //if users in response, add to screen
+      //if faveDrinks in response, add to screen
       if(obj.faveDrinks) {   
         drinkToSort = obj.faveDrinks;  
         // console.log('in fave drinks');
@@ -85,50 +96,50 @@
         };
       }
 
+      // if allDrinks in response, add to screen
       if(obj.allDrinks) {
         drinkToSort = obj.allDrinks.coffee;
-        // const drinks = JSON.stringify(obj.allDrinks.coffee[0]);
-        // console.dir(obj.allDrinks.coffee);
         createDrinkDisplay(obj.allDrinks.coffee, content);
        };
       };
     };
   
+    // handles responses 
     const handleResponse = (xhr) => {
       const content = document.querySelector('#output');
-      //check the status code
+      // check the status code
       switch(xhr.status) {
-        case 200: //success
+        case 200: // success
           content.innerHTML = `<b>Success</b>`;
           break;
-        case 201: //created
+        case 201: // created
           content.innerHTML = '<b>Create</b>';
           break;
-        case 204: //updated (no response back from server)
+        case 204: // updated (no response back from server)
           content.innerHTML = '<b>Updated (No Content)</b>';
           break;
-        case 400: 
+        case 400: // not all fields filled out
           alert("All fields are required");
           break;
-        case 404: //updated (no response back from server)
-          //content.innerHTML = '<b>Resource Not Found</b>';
+        case 404: // updated (no response back from server)
           alert("Resource not found");
           break;
-        case 500: 
+        case 500: // server crashes
           alert("Internal Server Error");
           break;
-        default: //any other status code
+        default: // any other status code
           alert("Error: Code not implemented by client");  
-        //content.innerHTML = `Error code not implemented by client.`;
           break;
       }
       parseJSON(xhr, content);
     };
   
+    // handles post
     const sendPost = (e, drinkForm) => {
       const drinkAction = drinkForm.getAttribute('action');
       const drinkMethod = drinkForm.getAttribute('method');
       
+      // grabs the fields from the form
       const drinkField = drinkForm.querySelector('#drinkField');
       const dateField = drinkForm.querySelector('#dateField');
       const cafeField = drinkForm.querySelector('#cafeField');
@@ -143,14 +154,17 @@
       xhr.setRequestHeader ('Accept', 'application/json');
       
       xhr.onload = () => handleResponse(xhr);
-      
+
+      // adds values put in by user to formData object
       const formData = `name=${drinkField.value}&date=${dateField.value}&cafe=${cafeField.value}&description=${descField.value}&cost=${costField.value}&rating=${ratingField.value}`;
       
+      // sends object
       xhr.send(formData);
       console.dir(`form data: ${formData}`);
     
       e.preventDefault();
 
+      // resets the fields
       drinkField.value = "";
       dateField.value = "";
       cafeField.value = "";
@@ -158,33 +172,37 @@
       costField.value = "";
       ratingField.value = "";
       
+      // alerts the user that the drink was added
       alert('Added to favorite drinks');
 
       return false;
     };
 
+    // displays the form on the screen vs viewing the drinks
     const showForm = () => {
+      // grabs html elements
       const addDrinkForm = document.querySelector("#addDrinkForm");
       const drinkList = document.querySelector("#drinkLists");
       const outputContent = document.querySelector("#output");
 
-
+      // if the form is not already displaying, display it and hide other elements
       if(addDrinkForm.style.display === "none") {
         addDrinkForm.style.display = "block";
-        //drinkContent.innerHTML = "";
         drinkList.style.display = "none";
       }
     }
   
+    // updates the page
     const requestUpdate = (e, method) => {
+      // grabs page elements
       const addDrinkForm = document.querySelector("#addDrinkForm");
       const drinkContent = document.querySelector("#drinkLists");
 
-        addDrinkForm.style.display = "none";
-        drinkContent.style.display = "block";
-      // const url = userForm.querySelector('#urlField').value;
-      // const method = userForm.querySelector('#methodSelect').value;
+      // hides the form and shows the output of drinks
+      addDrinkForm.style.display = "none";
+      drinkContent.style.display = "block";
       
+      // creates new request
       const xhr = new XMLHttpRequest();
       xhr.open('get', method);
       
@@ -200,15 +218,17 @@
       return false;
     };
 
-    // const filter = () => {}
-
+    // organizes the drink pages
     const sortResponses = () => {
+      // grabs section 
       const content = document.querySelector('#output');
 
+      // grabs selected option for filtering
       const filterValue = document.querySelector("#sortSelect").value;
       console.log(`sort responses ${filterValue}`);
 
       switch(filterValue) {
+        // sorting alphabetically 
         case 'name':
           let alphatized = drinkToSort;
             alphatized.sort(function(a, b) {
@@ -222,6 +242,7 @@
             });
             createDrinkDisplay(alphatized, content);
           break;
+          // lowest to highest price
         case 'lowPrice':
           let lowestPrice = drinkToSort;
           lowestPrice.sort(function(a, b) {
@@ -229,6 +250,7 @@
           });
           createDrinkDisplay(lowestPrice, content);
           break;
+          // highest price to lowest price
         case 'highPrice':
           let highestPrice = drinkToSort;
           highestPrice.sort(function(a, b) {
@@ -237,6 +259,7 @@
           highestPrice.reverse();
           createDrinkDisplay(highestPrice, content);
           break;
+          // highest ranking to lowest ranking
         case 'rating':
           let highestRating = drinkToSort;
           highestRating.sort(function(a, b) {
@@ -246,23 +269,28 @@
           createDrinkDisplay(highestRating, content);
           break;
         default:
+          // no default sorting 
           console.log('default');
           break;
       }
     };
   
+    // initalizes page
     const init = () => {   
+      // grabs different elements and buttons
       const drinkForm = document.querySelector('#addDrinkForm');
       const getDrinkButton = document.querySelector('.seeDrinks');
       const allDrinkButton = document.querySelector('.allDrinks');
 
+      // sets up sorting button to call corresponding function 
       const sortButton = document.querySelector('#sortSelectButton');
       sortButton.addEventListener('click', sortResponses);
 
+      // sets up new drink button to show the form
       const showFormButton = document.querySelector('.newDrink');
       showFormButton.addEventListener('click', showForm);
       
-      //create handler
+      //create handlers for viewing the drinks saved by user and all drinks
       const addDrink = (e) => sendPost(e, drinkForm);
       const getDrink = (e) => requestUpdate(e, '/getDrinks');
       const allDrink = (e) => requestUpdate(e, '/allDrinks');
