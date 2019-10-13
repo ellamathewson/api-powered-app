@@ -31,5 +31,4 @@ module.exports = {
   getIndex,
   getCSS,
   getImage,
-  // getAddDrink,
 };
